@@ -1,0 +1,17 @@
+setup.py
+huaweicloud_nlp/HWNlpClientAKSK.py
+huaweicloud_nlp/HWNlpClientToken.py
+huaweicloud_nlp/MtClient.py
+huaweicloud_nlp/NlgClient.py
+huaweicloud_nlp/NlpResponse.py
+huaweicloud_nlp/NlpfClient.py
+huaweicloud_nlp/NluClient.py
+huaweicloud_nlp/__init__.py
+huaweicloud_nlp/apig_sdk/__init__.py
+huaweicloud_nlp/apig_sdk/signer.py
+huaweicloud_python_sdk_nlp.egg-info/PKG-INFO
+huaweicloud_python_sdk_nlp.egg-info/SOURCES.txt
+huaweicloud_python_sdk_nlp.egg-info/dependency_links.txt
+huaweicloud_python_sdk_nlp.egg-info/not-zip-safe
+huaweicloud_python_sdk_nlp.egg-info/requires.txt
+huaweicloud_python_sdk_nlp.egg-info/top_level.txt
