@@ -8,8 +8,11 @@ from huaweicloud_sis.bean.sis_config import SisConfig
 from huaweicloud_sis.client.asr_client import AsrCustomizationClient
 from huaweicloud_sis.utils import io_utils
 from huaweicloud_sis.bean.asr_request import AsrCustomShortRequest
-app_key = "AGOPE82VZ2JU50DUZSBN"
-app_password = "ocXsUvRv9laBpLBpSiV3wPRGzzeQdM93iaWRPHTt"
+with open('./as_ak.json','r') as f:
+    as_ak=json.load(f)
+    app_key = as_ak['as']
+    app_password = as_ak['ak']
+
 project_id="e1a62164540747f4934d30f8619a2765"
 region='cn-north-4'
 

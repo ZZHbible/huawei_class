@@ -14,9 +14,10 @@ from image_sdk.image_tagging import image_tagging_aksk
 from image_sdk.utils import init_global_env
 
 init_global_env('cn-north-4')
-
-app_key = "AGOPE82VZ2JU50DUZSBN"
-app_password = "ocXsUvRv9laBpLBpSiV3wPRGzzeQdM93iaWRPHTt"
+with open('./as_ak.json','r') as f:
+    as_ak=json.load(f)
+    app_key = as_ak['as']
+    app_password = as_ak['ak']
 
 # file_path = 'data/'
 # labels = {}

@@ -11,8 +11,11 @@ from huaweicloud_nlp.NlgClient import NlgClient
 from huaweicloud_nlp.HWNlpClientToken import HWNlpClientToken
 from huaweicloud_nlp.NluClient import NluClient
 
-app_key = "AGOPE82VZ2JU50DUZSBN"
-app_password = "ocXsUvRv9laBpLBpSiV3wPRGzzeQdM93iaWRPHTt"
+with open('./as_ak.json','r') as f:
+    as_ak=json.load(f)
+    app_key = as_ak['as']
+    app_password = as_ak['ak']
+
 project_id = "e1a62164540747f4934d30f8619a2765"
 region = 'cn-north-4'
 
