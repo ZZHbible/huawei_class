@@ -1,6 +1,6 @@
 ## 环境配置
 
-> pip install matplotlib & pip install opencv-python & pip install scipy &  pip install python_speech_features & pip install tensorflow & pip install jieba &  pip install pandas
+> pip install -r requirements.txt
 
 ##### install  huaweicloud_sis
 
