@@ -8,7 +8,7 @@
 >
 > python setup.py install 
 >
-> cd .. &
+> cd .. 
 
 ##### install huaweicloud_nlp
 
