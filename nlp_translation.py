@@ -161,21 +161,21 @@ def train_step(inp,targ,enc_hidden):
     optimizer.apply_gradients(zip(gradients,variables))
     return batch_loss
 
-EPOCHS=30
+# EPOCHS=10
 
-for epoch in range(EPOCHS):
-    start=time.time()
-    enc_hidden=encoder.initialize_hidden_state()
-    total_loss=0
-    for (batch,(inp,targ)) in enumerate(dataset.take(steps_per_epoch)):
-        batch_loss=train_step(inp,targ,enc_hidden)
-        total_loss+=batch_loss
-        if batch%20==0:
-            print("epoch {} Batch {} loss{}".format(epoch+1,batch,batch_loss.numpy()))
-    if (epoch+1)%5==0:
-        checkpoint.save(file_prefix=checkpoint_prefix)
-    print("Epoch {} loss{}".format(epoch+1,total_loss/steps_per_epoch))
-    print("time taken for 1 epoch{}".format(time.time()-start))
+# for epoch in range(EPOCHS):
+#     start=time.time()
+#     enc_hidden=encoder.initialize_hidden_state()
+#     total_loss=0
+#     for (batch,(inp,targ)) in enumerate(dataset.take(steps_per_epoch)):
+#         batch_loss=train_step(inp,targ,enc_hidden)
+#         total_loss+=batch_loss
+#         if batch%20==0:
+#             print("epoch {} Batch {} loss{}".format(epoch+1,batch,batch_loss.numpy()))
+#     if (epoch+1)%5==0:
+#         checkpoint.save(file_prefix=checkpoint_prefix)
+#     print("Epoch {} loss{}".format(epoch+1,total_loss/steps_per_epoch))
+#     print("time taken for 1 epoch{}".format(time.time()-start))
 
 # 定义测试和可视化函数
 def evaluate(sentence):
@@ -193,7 +193,7 @@ def evaluate(sentence):
         predictions,dec_hidden,attention_weights=decoder(dec_input,dec_hidden,enc_out)
         attention_weights=tf.reshape(attention_weights,(-1,))
         attention_plot[t]=attention_weights.numpy()
-        print(attention_weights)
+        # print(attention_weights)
         predicted_id=tf.argmax(predictions[0]).numpy()
         result+=targ_lang.index_word[predicted_id]+' '
         if targ_lang.index_word[predicted_id]=='<end>':
@@ -206,7 +206,11 @@ def translate(sentence):
     print("intput: {} ".format(sentence))
     print('predicted translation: {}'.format(result))
 
+import argparse
+parser=argparse.ArgumentParser()
+parser.add_argument('--trans_data',type=str,default="这是一个测试文本")
+args=parser.parse_args()
 checkpoint_dir='checkpoints/chinese-eng'
 print(tf.train.latest_checkpoint(checkpoint_dir))
 checkpoint.restore(tf.train.latest_checkpoint(checkpoint_dir))
-translate('我有一只猫')
+translate(args.trans_data)
